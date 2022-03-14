@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Vaccination - Covid-19</title>
+  <link rel="stylesheet" href="/css/app.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+<script src='js/jquery.min.js'></script>
+<body>
+    <style>
+    * {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen-Sans, Ubuntu, Cantarell, "Helvetica Neue", sans-serif;
+    }
+
+    #DemoBar.demo-bar {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 9999;
+    padding: 40px 5px;
+    padding-top:70px;
+    margin-bottom: 70px;
+    background: #0D1326;
+    border-top-left-radius: 9px;
+    border-bottom-left-radius: 9px;
+    }
+
+    #DemoBar.demo-bar a {
+    display: block;
+    color: #e6ebff;
+    text-decoration: none;
+    line-height: 24px;
+    opacity: .6;
+    margin-bottom: 20px;
+    text-align: center;
+    }
+
+    #DemoBar.demo-bar span.icon {
+    display: block;
+    }
+
+    #DemoBar.demo-bar a:hover {
+    opacity: 1;
+    }
+
+    #DemoBar.demo-bar .icon svg {
+    color: #e6ebff;
+    }
+    #DemoBar.demo-bar .responsive-icons {
+    margin-top: 30px;
+    border-top: 1px solid #41414d;
+    padding-top: 40px;
+    }
+    #DemoBar.demo-bar .demo-btns {
+    border-top: 1px solid #41414d;
+    padding-top: 30px;
+    }
+    #DemoBar.demo-bar .responsive-icons a span.fa {
+    font-size: 26px;
+    }
+    #DemoBar.demo-bar .no-margin-bottom{
+    margin-bottom:0;
+    }
+    .toggle-right-sidebar span {
+    background: #0D1326;
+    width: 50px;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    color: #e6ebff;
+    border-radius: 50px;
+    font-size: 26px;
+    cursor: pointer;
+    opacity: .5;
+    }
+    .pull-right {
+    float: right;
+    position: fixed;
+    right: 0px;
+    top: 70px;
+    width: 90px;
+    z-index: 99999;
+    text-align: center;
+    }
+    /* ============================================================
+    RIGHT SIDEBAR SECTION
+    ============================================================ */
+
+    #right-sidebar {
+    width: 90px;
+    position: fixed;
+    height: 100%;
+    z-index: 1000;
+    right: 0px;
+    top: 0;
+    margin-top: 60px;
+    -webkit-transition: all .5s ease-in-out;
+    -moz-transition: all .5s ease-in-out;
+    -o-transition: all .5s ease-in-out;
+    transition: all .5s ease-in-out;
+    overflow-y: auto;
+    }
+
+    /* ============================================================
+    RIGHT SIDEBAR TOGGLE SECTION
+    ============================================================ */
+
+    .hide-right-bar-notifications {
+    margin-right: -300px !important;
+    -webkit-transition: all .3s ease-in-out;
+    -moz-transition: all .3s ease-in-out;
+    -o-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+    }
+
+
+
+    @media (max-width: 992px) {
+    #DemoBar.demo-bar a.desktop-mode{
+        display: none;
+
+    }
+    }
+    @media (max-width: 767px) {
+    #DemoBar.demo-bar a.tablet-mode{
+        display: none;
+
+    }
+    }
+    @media (max-width: 568px) {
+    #DemoBar.demo-bar a.mobile-mode{
+        display: none;
+    }
+    #DemoBar.demo-bar .responsive-icons {
+        margin-top: 0px;
+        border-top: none;
+        padding-top: 0px;
+    }
+    #right-sidebar,.pull-right {
+        width: 90px;
+    }
+    #DemoBar.demo-bar .no-margin-bottom-mobile{
+        margin-bottom: 0;
+    }
+    }
+    </style>
+
+    <section class="header-4 mobile-header">
+        <header id="headers4-block">
+            <div class="wrapper-full">
+                <div class="d-grid nav-mobile-block header-align">
+                    <div class="logo">
+                        <a class="brand-logo" href="#" style="text-decoration: none;">Vaccination</a>
+                    </div>
+                    <input type="checkbox" id="nav" />
+                    <label class="nav" for="nav"></label>
+                    <nav>
+                        <label for="drop" class="toggle nav-height">Menu</label>
+                        <input type="checkbox" id="drop">
+                        <ul class="menu">
+                            <li><a href="#">Database</a></li>
+                            <li><a href="#">Education</a></li>
+                            <li><a href="#">News</a></li>
+                            <li><a href="#">Regulation</a></li>
+                            <li><a href="#">Hoax Buster</a></li>
+                        </ul>
+                    </nav>
+
+                </div>
+            </div>
+        </header>
+        <script src="/js/jquery-3.3.1.min.js"></script>
+    </section>
+
+    <section class="hero-headers-11">
+        <div class="hero-header-11">
+            <div class="banner-left-content">
+                <div class="d-grid grid-columns-auto-end">
+                    <div class="slider-text-w3ls">
+                        <span class="hny-sub">Vaccination</span>
+                        <h4>Fight Virus</h4>
+                        <h4>With Vaccines.</h4>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis distinctio possimus animi voluptatem. Ex corrupti maxime voluptate incidunt natus qui sit, officia soluta amet consectetur dolorem commodi ipsum velit totam!</p>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <span><i class="fas fa-shield-virus"></i>&nbsp;Best protections</span>
+                            </div>
+                            <div class="col-md-3">
+                                <span><i class="fas fa-star"></i>&nbsp;Selected vaccines</span>
+                            </div>
+                        </div>
+                        <div class="button-6">
+                                <div class="eff-6"></div>
+                                <a href="#" class="btn">Conocer más </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-header-11-content">
+                <div id="homepage-slider" class="st-slider">
+                    <input type="radio" class="cs_anchor radio" name="slider" id="play1" checked="" />
+                    <input type="radio" class="cs_anchor radio" name="slider" id="slide1" />
+                    <input type="radio" class="cs_anchor radio" name="slider" id="slide2" />
+                    <input type="radio" class="cs_anchor radio" name="slider" id="slide3" />
+                    <input type="radio" class="cs_anchor radio" name="slider" id="slide4" />
+                    <div class="images">
+                        <div class="images-inner">
+                            <div class="image-slide">
+                                <div class="banner-w3ls-1">
+                                </div>
+                            </div>
+                            <div class="image-slide">
+                                <div class="banner-w3ls-2">
+                                </div>
+                            </div>
+                            <div class="image-slide">
+                                <div class="banner-w3ls-3">
+                                </div>
+                            </div>
+                            <div class="image-slide">
+                                    <div class="banner-w3ls-4">
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="labels">
+                        <div class="fake-radio">
+                            <label for="slide1" class="radio-btn"></label>
+                            <label for="slide2" class="radio-btn"></label>
+                            <label for="slide3" class="radio-btn"></label>
+                            <label for="slide4" class="radio-btn"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="grid-slider-vv">
+        <div class="grid-slider section-gap">
+            <div class="wrapper">
+                <div id="demos">
+                    <div class="owl-carousel owl-theme grid-col-4">
+                        <div class="item">
+                            <a href="#link">
+                                <div class="gallery-grid">
+                                    <div class="content">
+                                        <div class="content-overlay"></div>
+                                        <img src="https://logodix.com/logo/1023141.png" class="image-two img-responsive">
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="#link">
+                                <div class="gallery-grid">
+                                    <div class="content">
+                                        <div class="content-overlay"></div>
+                                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/85/Sinovac_logo.svg/2560px-Sinovac_logo.svg.png" class="image-two img-responsive">
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="#link">
+                                <div class="gallery-grid">
+                                    <div class="content">
+                                        <div class="content-overlay"></div>
+                                        <img src="https://1000marcas.net/wp-content/uploads/2020/02/logo-Pfizer.png" class="image-two img-responsive">
+                                    </div>
+                                </div>
+            
+                            </a>
+                        </div>
+                        <div class="item">
+                            <a href="#link">
+                                <div class="gallery-grid">
+                                    <div class="content">
+                                        <div class="content-overlay"></div>
+                                        <img src="https://semst.org/wp-content/uploads/2021/04/logomoderna-1200x913.jpg" class="image-two img-responsive">
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /slider -->
+        <script src="/js/jquery-3.3.1.min.js"></script>
+        <script src="/js/grids.owl.carousel.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('.owl-carousel').owlCarousel({
+                    loop: true,
+                    margin: 0,
+                    responsiveClass: true,
+                    autoplay: true,
+                    autoplayTimeout: 2000,
+                    autoplaySpeed: 1000,
+                    autoplayHoverPause: true,
+                    responsive: {
+                        0: {
+                            items: 1,
+                            nav: false
+                        },
+                        480: {
+                            items: 2,
+                            nav: true,
+                            margin: 20
+                        },
+                        667: {
+                            items: 3,
+                            nav: true,
+                            margin: 20
+                        },
+                        1000: {
+                            items: 4,
+                            nav: true,
+                            margin: 20
+                        }
+                    }
+                })
+            })
+        </script>
+        <!-- /slider -->
+    </section>
+
+    <section class="feature-with-photo-1">
+        <div class="feature-with-photo-hny section-gap">
+            <div class="wrapper">
+                <div class="feature-with-photo-content">
+                    <h3 class="hny-title text-center">Why should I vaccine?</h3>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Possimus sapiente commodi maiores ullam est nostrum aliquam!</p>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div class="card" style="height: 20rem;">
+                                <div class="card-body">
+                                    <span><i class="fas fa-3x fa-shield-virus pb-4"></i></span>
+                                <h5 class="card-title">Minimize the spread of viruses</h5>
+                                <h6 class="card-subtitle mb-2 text-muted pt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, magnam quam, dignissimos ea eveniet veritatis quae fuga pariatur est iure distinctio corrupti nihil sint, vel ad quo omnis necessitatibus labore.</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card" style="height: 20rem;">
+                                <div class="card-body">
+                                    <span><i class="fas fa-3x fa-shield-alt pb-4"></i></span>
+                                <h5 class="card-title">Forming antibodies</h5>
+                                <h6 class="card-subtitle mb-2 text-muted pt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, magnam quam, dignissimos ea eveniet veritatis quae fuga pariatur est iure distinctio corrupti nihil sint, vel ad quo omnis necessitatibus labore.</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card" style="height: 20rem;">
+                                <div class="card-body">
+                                    <span><i class="fa fa-3x fa-users pb-4"></i></span>
+                                <h5 class="card-title">Protecting people nearby</h5>
+                                <h6 class="card-subtitle mb-2 text-muted pt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, magnam quam, dignissimos ea eveniet veritatis quae fuga pariatur est iure distinctio corrupti nihil sint, vel ad quo omnis necessitatibus labore.</h6>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <div class="card" style="height: 20rem;">
+                                <div class="card-body">
+                                    <span><i class="fas fa-3x fa-chart-line pb-4"></i></span>
+                                <h5 class="card-title">Creating group immunity</h5>
+                                <h6 class="card-subtitle mb-2 text-muted pt-4">Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum, magnam quam, dignissimos ea eveniet veritatis quae fuga pariatur est iure distinctio corrupti nihil sint, vel ad quo omnis necessitatibus labore.</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="content-with-photo-6">
+        <div class="contente-photo-hny-info section-gap">
+            <div class="wrapper">
+                <div class="content-photo-grids">
+                    <div class="content-photo-left">
+                        <img src="https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2" class="img-responsive" alt="" />
+                    </div>
+                    <div class="content-photo-right">
+                        <span class="hny-sub">Preparations</span>
+                        <h4>Preparations Before Vaccine</h4>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus, totam incidunt id aspernatur quaerat eum autem, doloremque repudiandae sapiente tempore est, fuga libero quod omnis velit porro saepe fugiat exercitationem.</p>
+                            <div class="button-6">
+                                    <div class="eff-6"></div>
+                                    <a href="#" class="btn">Leer más</a>
+                            </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <section class="footer-28-main">
+            <div class="footer-28 section-gap">
+                <div class="wrapper">
+                    <div class="d-grid grid-col-4 footer-top-28">
+                        <div class="footer-list-28">
+                            <h6 class="footer-title-28">Vaccination</h6>
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Nam asperiores doloremque exercitationem sit nostrum</p>
+                        </div>
+                        <div class="footer-list-28">
+                            <ul>
+                                <h6 class="footer-title-28">About</h6>
+                                <li><a href="#">About us</a></li>
+                                <li><a href="#">Features</a></li>
+                                <li><a href="#">News & Blog</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-list-28">
+                            <ul>
+                                <h6 class="footer-title-28">Company</h6>
+                                <li><a href="#">How we work</a></li>
+                                <li><a href="#">Capital</a></li>
+                                <li><a href="#">Securty</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-list-28">
+                            <ul>
+                                <h6 class="footer-title-28">Support</h6>
+                                <li><a href="#">FAQS</a></li>
+                                <li><a href="#">Support center</a></li>
+                                <li><a href="#">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button onclick="topFunction()" id="movetop" title="Go to top">
+                <span class="fa fa-arrow-up" aria-hidden="true"></span>
+            </button>
+            <script>
+                // When the user scrolls down 20px from the top of the document, show the button
+                window.onscroll = function () {
+                    scrollFunction()
+                };
+
+                function scrollFunction() {
+                    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+                        document.getElementById("movetop").style.display = "block";
+                    } else {
+                        document.getElementById("movetop").style.display = "none";
+                    }
+                }
+
+                // When the user clicks on the button, scroll to the top of the document
+                function topFunction() {
+                    document.body.scrollTop = 0;
+                    document.documentElement.scrollTop = 0;
+                }
+            </script>
+            <!-- /move top -->
+
+        </section>
+    </footer>
+</body>
+
+</html>
+
